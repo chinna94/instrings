@@ -1,0 +1,19 @@
+<% content_for :top_content do %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1> Welcome!</h1>
+        <p>Register to Explore your Passion.</p>
+        <p id="regis-button">
+          <%= link_to 'REGISTER AS FAN', new_user_registration_path(:option => 'fan'), class: 'btn btn-primary btn-lg' %>
+          <%= link_to 'REGISTER AS PROMOTOR', new_user_registration_path(:option => 'promotor'), class: 'btn btn-primary btn-lg' %>
+          <%= link_to 'REGISTER AS ARTIST', new_user_registration_path(:option => 'artist'), class: 'btn btn-primary btn-lg' %>
+        </p>
+      </div>
+    </div>
+    <h2 style="margin-left: 165px;font-size: 22px; font-weight: bold;">Featured Artists</h2>
+    <div class="container_fa">
+      <% @featured_artists.each do |fa| %>
+        <%= image_tag(fa.picture , :alt => "rss feed", :size => '185x180') %>
+      <%end %>
+    </div>
+<% end %>

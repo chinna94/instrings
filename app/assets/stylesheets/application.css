@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*@import 'bootstrap/theme';*/
+
+/*//.alert-alert {*/
+/*//  @extend .alert-warning;*/
+/*//}*/
+/*//*/
+/*//.alert-notice {*/
+/*//@extend .alert-info;*/
+/*//}*/
+.form-wrapper input[type="button"], input[type="reset"], input[type="submit"] {
+    background-color: #337AB7;
+    border-color: #337AB7;
+}
+
+/*.form-control {*/
+    /*width: 60%;*/
+/*}*/
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: -8px;
+}
+
+#search-field{
+    /*-webkit-border-radius: 50px;*/
+    /*-moz-border-radius: 50px;*/
+    /*border-radius: 50px;*/
+    color: black;
+    width: 100%;
+    margin-right: 25px;
+    margin-top: -28px;
+    margin-left: -5px;
+}
+
+.navbar-brand input{
+    padding-left: 30px;
+}
+
+.lefton-signup{
+    width: 50%;
+    border-right: 2px solid #ABBFC5;
+}
+
+.oauth-signup{
+    float: left;
+    width: 100%;
+    margin-left: 725px;
+    position: fixed;
+    margin-top: -550px;
+}

@@ -1,0 +1,63 @@
+<div class="lefton-signup">
+
+  <h2>Sign up</h2></br>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <!--<div class="form-group">-->
+      <!--<%= f.label :registration_type %></br>-->
+      <!--<%= f.collection_select :user_type, Setting.all, :id, :value, prompt: true, include_blank: "Please select", class: 'form-control'  %>-->
+    <!--</div>-->
+
+
+    <div class="form-group">
+      <%= f.label :registration_type %>
+      <% if params[:option].nil? %>
+        <%= f.select(:user_type, options_for_select([['FAN', 'fan'], ['ARTIST', 'artist'],['PROMOTOR','promotor']]), {include_blank: "Please select"}, {class: "form-control"}) %>
+      <% elsif params[:option] == 'fan' %>
+        <%= f.select(:user_type, options_for_select([]), {include_blank: "FAN"}, {class: "form-control"}) %>
+      <% elsif params[:option] == 'artist' %>
+        <%= f.select(:user_type, options_for_select([]), {include_blank: "ARTIST"}, {class: "form-control"}) %>
+      <% else %>
+          <%= f.select(:user_type, options_for_select([]), {include_blank: "PROMOTOR"}, {class: "form-control"}) %>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %></br>
+      <%= f.text_field :email, class: 'form-control', autofocus: true; %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @validatable %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class:'form-control',autocomplete: "off" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class:'form-control', autocomplete: "off" %>
+    </div>
+
+    <div class="actions btn btn-primary btn-small">
+      <%= f.submit "Sign up" %>
+    </div>
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
+
+<div class = "oauth-signup">
+  <h2>Signup using OAuth</h2>
+  <li><%= link_to 'Twitter', '/auth/twitter' %></li>
+</div>

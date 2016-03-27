@@ -1,0 +1,53 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  margin-top: -18px;
+  background: #2B1D1D image-url("jumbotron-background.jpg");
+  -webkit-filter: grayscale(0.6);
+  background-position: 0% 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  height: 500px;
+  text-shadow: black 0.1em 0.1em 0.1em;
+}
+
+.navbar-brand{
+  margin-right: 30px;
+}
+
+.jumbotron .container h1, p{
+  text-align: center;
+}
+
+#regis-button{
+ margin:10%;
+}
+
+.btn-group-lg > .btn, .btn-lg {
+  margin-right: 65px;
+  border-radius: 50px;
+  margin-left: 5px;
+  background-color: #B8E20E;
+}
+
+.form-control{
+  width: 80%;
+}
+
+.container_fa{
+  height: 190px;
+  background-color: #6874B7;
+  width: 74%;
+  margin-top: -10px;
+  padding: 5px;
+  margin: auto
+  }
+
+//.container_fa_images{
+//  height: 100px;
+//  width: 100px;
+//  padding: 10px;
+//}

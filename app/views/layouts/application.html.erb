@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InStrings</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <!---->
+      <%= link_to image_tag("logo.png", :size => "50x50", :style => 'margin-top: -15px;'), root_path, class: 'navbar-brand' %>
+      <%= link_to 'Discover', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Trending Artists', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Trending Songs', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Events', root_path, class: 'navbar-brand' %>
+      <form class="navbar-brand"><span class="glyphicon glyphicon-search"></span><input class = "form-control" id="search-field" type="text" name="search" placeholder="   Search Instrings"></form>
+
+    </div>
+
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <!--<li><%= link_to 'Home', root_path %></li>-->
+        <!--<li><%= link_to 'Top Videos', root_path %></li>-->
+        <!--<li><%= link_to 'Artists', root_path %></li>-->
+        <!--<li><%= link_to 'Genre', root_path %></li>-->
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <% if user_signed_in? %>
+           <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user.name %>
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+           </li>
+
+        <% elsif current_user_signed_in?%>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user_prov.name %>
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Profile', 'users/edit' %></li>
+                <li><%= link_to 'Log out', 'sessions/destroy', method: :delete %></li>
+              </ul>
+            </li>
+
+            <!--<div class="dropdown">-->
+              <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.name %> -->
+                <!--<span class="caret"></span></button>-->
+              <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">HTML</a></li>-->
+                <!--<li><a href="#">CSS</a></li>-->
+                <!--<li><a href="#">JavaScript</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+        <% else %>
+            <li><%= link_to 'LOG IN', new_user_session_path %></li>
+            <li><%= link_to 'SIGN UP', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%= yield :top_content %>
+
+
+<div class="container">
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <h1><%= yield :header %></h1>
+  <%= yield %>
+</div>
+
+</body>
+</html>

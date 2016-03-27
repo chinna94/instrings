@@ -1,0 +1,19 @@
+<% if current_user_prov %>
+    <div class="page-header">
+      <h1>Here is some info about you...</h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          <li><strong>Name:</strong> <%= current_user_prov.name %></li>
+          <li><strong>Provider:</strong> <%= current_user_prov.provider %></li>
+          <li><strong>uID:</strong> <%= current_user_prov.uid %></li>
+          <li><strong>Location:</strong> <%= current_user_prov.location %></li>
+          <li><strong>Avatar URL:</strong> <%= current_user_prov.image_url %></li>
+          <li><strong>URL:</strong> <%= current_user_prov.url %></li>
+        </ul>
+      </div>
+    </div>
+<% else %>
+    <%= render 'welcome' %>
+<% end %>
